@@ -1,4 +1,5 @@
 Link: moveouserstask.netlify.app
+
 •	I have developed a Client Side project in JavaScript and React.
 •	The project includes a webpage display with table of users which I have pulled from an API service using Axios.
 •	The table contains an option to choose between 5 or 10 rows per page, and controls to move between pages. In addition, the table have a sorting option for each column.
