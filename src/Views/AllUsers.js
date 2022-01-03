@@ -13,7 +13,7 @@ export default function AllUsers() {
     async function fetchData() {
       try {
         let resp = await axios.get(
-          "https://randomuser.me/api/?page=3&results=25&seed=abc"
+          "https://randomuser.me/api/?page=3&results=100&seed=abc"
         );
         let allUsersData = [];
         resp.data.results.forEach((element) => {

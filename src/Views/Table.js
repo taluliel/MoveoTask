@@ -212,9 +212,10 @@ export default function UsersTable(props) {
   };
 
   const initials = (name) => {
-    let firstChar = name.match(/\b(\w)/g);
-    let fullName = firstChar.join("");
-    return fullName;
+    let firstChars = name
+      .split(/\s/)
+      .reduce((response, word) => (response += word.slice(0, 1)), "");
+    return firstChars;
   };
 
   const handleRowClick = (user) => {
@@ -267,34 +268,30 @@ export default function UsersTable(props) {
                     </TableRow>
                   );
                 })}
-              {emptyRows > 0 && (
-                <TableRow>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
+              {emptyRows > 0 && <TableRow></TableRow>}
             </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[5, 10]}
+                  colSpan={3}
+                  count={props.users.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  SelectProps={{
+                    inputProps: {
+                      "aria-label": "rows per page",
+                    },
+                    native: true,
+                  }}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
           </Table>
         </TableContainer>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10]}
-              colSpan={3}
-              count={props.users.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  "aria-label": "rows per page",
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
       </Paper>
     </Box>
   );
