@@ -41,7 +41,10 @@ export default function User() {
         </Button>
       </div>
       {Object.keys(user).length > 0 && (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card
+          sx={{ maxWidth: 345 }}
+          style={{ border: "double", margin: "auto", marginTop: "10px" }}
+        >
           <CardHeader
             avatar={<Avatar alt="userImage" src={user.img} />}
             title={"Name: " + user.name}
