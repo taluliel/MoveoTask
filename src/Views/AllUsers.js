@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./style/allUsers.css";
+import "../style/allUsers.css";
 import EmailModal from "./EmailModal";
 import UsersTable from "./Table";
 

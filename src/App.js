@@ -1,5 +1,5 @@
-import AllUsers from "./AllUsers";
-import User from "./User";
+import AllUsers from "./Views/AllUsers";
+import User from "./Views/User";
 import "./style/App.css";
 import { Routes, Route } from "react-router-dom";
 
